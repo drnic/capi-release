@@ -2,9 +2,10 @@ echo "Installing nginx newrelic plugin"
 
 cp -a nginx/newrelic_nginx_agent/* ${BOSH_INSTALL_TARGET}
 
+source /var/vcap/packages/ruby-2.4/bosh/compile.env
 
 echo "Installing newrelic plugin dependencies"
 
 pushd ${BOSH_INSTALL_TARGET}
-  /var/vcap/packages/ruby-2.3/bin/bundle install --local --deployment --without development test
+  bundle install --local --deployment --without development test
 popd
